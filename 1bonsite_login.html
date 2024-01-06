@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코딩 자율동아리 [코더]</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .grid-cell {
-            width: 100px;
-            height: 100px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif; /* 적절한 폰트로 변경하세요 */
+    }
+
+    .rounded-input {
+      border-radius: 10px; /* 적절한 값으로 조절하세요 */
+    }
+
+    .container {
+      margin: 0 auto; /* 화면 중앙 정렬 */
+      max-width: 400px; /* 컨테이너 최대 너비 설정 */
+      padding: 0 20px; /* 좌우 여백 추가 */
+    }
+
+    .button-container {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .title-container, .input-container {
+      margin: 13px 0;
+      color: gray;
+    }
+  </style>
 </head>
-<body class="bg-white text-black font-sans">
-    <div class="container mx-auto px-4 sm:px-0"> <!-- Updated class here -->
-        <!-- Content here -->
-
-        <style>
-            .custom-margin-bottom {
-                margin-bottom: 20.0rem; /* 조절하려는 값에 따라 조절하세요 */
-            }
-        </style>
-        
-        <div class="flex justify-between items-center border-b-2 py-4 mb-1 custom-margin-bottom">
-            <a href="1bonsite.html" class="hover:underline">
-                <h1 class="text-3xl font-bold">CODER [코더]</h1>
-            </a>
-            <div class="flex space-x-4">
-                <a href="1bonsite_gongji.html" class="hover:underline">공지사항</a>
-                <a href="#" class="hover:underline">오시는길</a>
-            </div>
+<body>
+  <main>
+    <section class="my-8">
+      <h2 class="text-3xl font-bold text-center mb-6">로그인</h2>
+      <form class="container">
+        <div class="mb-4">
+          <div class="input-container">
+            <input type="text" id="username" class="border-2 border-gray-300 w-full p-2 rounded-input" placeholder="아이디">
+          </div>
+          
+          <div class="input-container mb-6">
+            <input type="text" id="password" class="border-2 border-gray-300 w-full p-2 rounded-input" placeholder="비밀번호">
+          </div>
+          
+          <div class="button-container">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">로그인</button>
+          </div>
+          
+          <div class="title-container">
+            <h2 class="text-1xl text-center mb-6">학원 재원생용 로그인이며, 별도로 회원가입은 불가합니다.</h2>
+          </div>
         </div>
-
-        <main>
-            <section class="my-8">
-                <h2 class="text-3xl font-bold text-center mb-6">로그인</h2>
-                <form class="max-w-md mx-auto sm:w-full"> <!-- Updated class here -->
-                    <div class="mb-4">
-                        <style>
-                            .rounded-input {
-                                border-radius: 10px; /* 적절한 값으로 조절하세요 */
-                            }
-                          
-                            .container {
-                                margin-bottom: 20px;
-                            }
-                          
-                            .button-container {
-                                margin-top: 20px;
-                                margin-bottom: 10px;
-                            }
-
-                            .title-container {
-                                margin: 13px 0;
-                                color: gray;
-                            }
-
-                            .input-container {
-                                margin: 13px 0;
-                                color: gray;
-                            }
-                        </style>
-
-                        <div class="container">
-                            <div class="input-container">
-                                <input type="text" id="username" class="border-2 border-gray-300 w-full p-2 rounded-input" placeholder="아이디">
-                            </div>
-                            
-                            <div class="input-container mb-6">
-                                <input type="text" id="password" class="border-2 border-gray-300 w-full p-2 rounded-input" placeholder="비밀번호">
-                            </div>
-                            
-                            <div class="button-container">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">로그인</button>
-                            </div>
-                            
-                            <div class="title-container">
-                                <h2 class="text-1xl text-center mb-6">학원 재원생용 로그인이며, 별도로 회원가입은 불가합니다.</h2>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        </main>
-
-        <footer class="text-center py-8">
-            <p class="text-sm">대표운영 우정빈, 심희섭 | 운영학교 목일중 | 카카오 채널톡 @coder_mokil</p>
-            <p class="text-sm">호스팅서비스 Github | 고객지원 카카오 채널톡, 우측 아래 상담봇</p>
-        </footer>
-    </div>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
