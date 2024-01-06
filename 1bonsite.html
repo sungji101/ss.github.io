@@ -6,18 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>코딩 자율동아리 [코더]</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <style>
         .grid-cell {
             width: 100px;
             height: 100px;
         }
+    </style>
+    <style>
+        body {
+            font-size: 16px;
+        }
 
-        @media (max-width: 768px) {
-            .grid-cell {
-                width: 50px; /* 모바일 화면에서 그리드 셀 크기를 줄임 */
-                height: 50px;
-            }
+        .custom-margin-bottom {
+            margin-bottom: 2rem; /* Adjust the value as needed */
+        }
+    </style>
+    <style>
+        .box-with-shadow {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .box-with-shadow:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -25,41 +36,27 @@
 <body class="bg-white text-black font-sans">
     <div class="container mx-auto px-4">
         <!-- Content here -->
-
-        <style>
-            .custom-margin-bottom {
-                margin-bottom: 2.0rem; /* 모바일 화면에 대한 여백 조절 */
-            }
-
-            @media (max-width: 768px) {
-                .custom-margin-bottom {
-                    margin-bottom: 1.0rem;
-                }
-
-                .header-logo {
-                    text-align: center;
-                }
-            }
-        </style>
-
-        <div class="flex flex-col items-center border-b-2 py-4 mb-1 custom-margin-bottom">
-            <a href="1bonsite.html" class="hover:underline header-logo">
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">CODER [코더]</h1>
+        <div class="flex flex-col sm:flex-row justify-between items-center border-b-2 py-4 mb-1 custom-margin-bottom">
+            <a href="1bonsite.html" class="hover:underline">
+                <h1 class="text-2xl sm:text-3xl font-bold">CODER [코더]</h1>
             </a>
-            <div class="flex space-x-4 mt-2">
+            <div class="flex mt-4 sm:mt-0 space-x-4">
                 <a href="1bonsite_gongji.html" class="hover:underline">공지사항</a>
-                <a href="1bonsite_road.html" class="hover:underline">오시는길</a>
+                <a href="1bonsite_.html" class="hover:underline">오시는길</a>
                 <a href="1bonsite_login.html" class="hover:underline">로그인</a>
             </div>
         </div>
 
-        <div class="text-left my-8 md:my-12">
-            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">코딩 자율동아리, CODER [코더]🧑🏻‍💻</h2>
-            <p class="text-lg md:text-xl mb-6">여러분의 [코딩]을 그릴 수 있는 곳</p>
+        <div class="text-left my-8 sm:my-12">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">코딩 자율동아리, CODER [코더]🧑🏻‍💻</h2>
+            <p class="text-base sm:text-xl mb-6">여러분의 [코딩]을 그릴 수 있는 곳</p>
             <a href="https://forms.gle/4WXywBKhYpaowWxy5"
                 class="bg-black text-white px-6 py-2 inline-block rounded-lg hover:bg-gray-800">동아리 신청 바로가기</a>
         </div>
 
+    </div>
+
+    <div class="container mx-auto px-4"> <!-- 추가 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             <!-- 그리드 셀 수정 -->
             <div class="border-2 p-4 rounded-md h-auto flex flex-col justify-between">
@@ -88,27 +85,34 @@
                 </div>
             </div>
         </div>
+    </div> <!-- 추가 -->
 
-        <div class="border-2 p-4 mb-12 rounded-md">
-            <h3 class="font-semibold mb-2 text-lg md:text-xl">동아리 일정</h3>
+    <div class="container mx-auto px-4"> <!-- 추가 -->
+        <div class="border-2 p-4 mb-12 rounded-2xl">
+            <h3 class="font-semibold mb-2 text-lg">동아리 일정</h3>
             <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <h3 class="font-semibold mb-4 text-lg md:text-xl">등록된 일정이 없습니다</h3>
+                <h3 class="font-semibold mb-4 text-lg" style="font-size: 20px;">등록된 일정이 없습니다</h3>
             </div>
         </div>
 
-        <footer class="py-4 border-t mt-8 text-sm">
-            <p class="text-center">
+        <footer class="py-4 border-t mt-8">
+            <p class="text-sm">
                 대표운영 우정빈, 심희섭 | 운영학교 목일중 | 카카오 채널톡 @coder_mokil<br>
                 호스팅서비스 Github | 고객지원 카카오 채널톡, 우측 아래 상담봇
             </p>
         </footer>
     </div>
+
     <script>
         function redirectToOtherPage() {
+            // 새로운 HTML 파일의 경로를 여기에 입력
             var newPagePath = '1bonsite_gongji.html';
+
+            // 새로운 페이지로 이동
             window.location.href = newPagePath;
         }
     </script>
+
 </body>
 
 </html>
