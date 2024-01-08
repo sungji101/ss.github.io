@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,56 +12,167 @@
             width: 100px;
             height: 100px;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 10px; /* 둥글게 설정 */
+            width: 80%;
+            max-width: 800px;
+            animation: slideIn 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        .notice-box {
+            border: 1px solid #e2e2e2;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .notice-box:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
+
 <body class="bg-white text-black font-sans">
     <div class="container mx-auto px-4">
         <!-- Content here -->
 
         <style>
             .custom-margin-bottom {
-                margin-bottom: 4.0rem; /* 조절하려는 값에 따라 조절하세요 */
+                margin-bottom: 4.0rem;
             }
         </style>
-        
+
         <div class="flex justify-between items-center border-b-2 py-4 mb-1 custom-margin-bottom">
-            <a href="1bonsite.html" class="hover:underline">
+            <a href="index.html" class="hover:underline">
                 <h1 class="text-3xl font-bold">CODER [코더]</h1>
-              </a>
+            </a>
             <div class="flex space-x-4">
                 <a href="1bonsite_road.html" class="hover:underline">오시는길</a>
                 <a href="1bonsite_login.html" class="hover:underline">로그인</a>
             </div>
         </div>
-        
-        
+
         <main class="my-8">
             <section class="mb-8">
                 <h2 class="text-4xl font-semibold mb-4">공지사항</h2>
-                <article class="border p-4 mb-4 rounded">
-                    <h3 class="text-lg font-semibold">2024년 4월 12일(금)까지 신청 가능합니다.</h3>
+                <article class="border p-4 mb-4 rounded-lg notice-box" onclick="openModal(this)">
+                    <h3 class="text-lg font-bold">코딩 자율동아리 [코더]가 목일중에서 시작합니다!</h3>
                     <p class="text-sm mt-2">작성자: 관리자</p>
+                    <div class="hidden" id="modalContent1">코딩 자율동아리 [코더] 목일 신청이 오픈되었습니다.<br>신청 바로가기: <a href="https://forms.gle/4WXywBKhYpaowWxy5" target="_blank">https://forms.gle/4WXywBKhYpaowWxy5<br>신청기간: 2024년 4월 12일(금)까지</a></div>
                 </article>
-                <article class="border p-4 mb-4 rounded">
-                    <h3 class="text-lg font-semibold">코딩 자율동아리 [코더]가 목일중에서 시작합니다!</h3>
-                    <p class="text-sm mt-2">작성자: 관리자</p>
-                </article>
+                <!-- 추가적인 article들도 동일한 방식으로 수정 가능 -->
             </section>
         </main>
-         
-          <head>
-            <!-- 기존 스타일 시트 등을 포함한 부분 -->
-            <style>
-
-            </style>
-            
-        </head>
-        
-          
         <footer class="py-4 border-t mt-8">
             <p class="text-sm">
-              대표운영 우정빈, 심희섭 | 운영학교 목일중 | 카카오 채널톡 @coder_mokil<br>
-              호스팅서비스 Github | 고객지원 카카오 채널톡, 우측 아래 상담봇
+                대표운영 우정빈, 심희섭 | 운영학교 목일중 | 카카오 채널톡 @coder_mokil<br>
+                호스팅서비스 Github | 고객지원 카카오 채널톡, 우측 아래 상담봇
             </p>
-          </footer>
+        </footer>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p id="modalAuthor"></p>
+            </div>
+            <div id="modalContent"></div>
         </div>
+    </div>
+
+    <script>
+        function openModal(clickedArticle) {
+            var title = clickedArticle.querySelector('.text-lg').innerText;
+            var author = clickedArticle.querySelector('.text-sm').innerText;
+            author = author.replace('작성자: ', '');
+            var contentId = clickedArticle.querySelector('.hidden').id;
+            var content = document.getElementById(contentId).innerHTML;
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalAuthor').innerText = '작성자: ' + author;
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Close modal if clicked outside the content
+        window.onclick = function (event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>
